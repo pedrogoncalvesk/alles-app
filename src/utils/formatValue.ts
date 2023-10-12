@@ -1,7 +1,7 @@
 import numeral from "numeral";
 
-export const formatDefault = (amount: string, currency = "$") => {
-  let textResult = `${currency}`;
+export const formatDefault = (amount: string, currency = "R$") => {
+  let textResult = `${currency} `;
   try {
     if (isNaN(parseFloat(amount))) {
       textResult += numeral(parseFloat(amount.replace(",", ""))).format(

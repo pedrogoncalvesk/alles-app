@@ -14,6 +14,7 @@ import Images from 'assets/images';
 import keyExtractor from 'utils/keyExtractor';
 import { RootStackParamList } from 'navigation/navigation-types';
 import { useLayout } from 'hooks';
+import { formatDefault } from 'utils/formatValue';
 import {
   Container,
   Content,
@@ -139,7 +140,7 @@ const DATA_TAB = [
   {
     icon: "🆓",
     title: "Saldo livre",
-    time_left: "64 days left",
+    time_left: "",
     balance: 50,
     target: 400,
     color: 12,
@@ -148,7 +149,7 @@ const DATA_TAB = [
   {
     icon: "🥗",
     title: "Vale Refeição",
-    time_left: "64 days left",
+    time_left: "",
     balance: 500,
     target: 800,
     color: 6,
@@ -157,7 +158,7 @@ const DATA_TAB = [
   {
     icon: "🚇",
     title: "Transporte",
-    time_left: "64 days left",
+    time_left: "",
     balance: 150,
     target: 400,
     color: 7,
@@ -166,7 +167,7 @@ const DATA_TAB = [
   {
     icon: "🛒",
     title: "Vale Alimentação",
-    time_left: "64 days left",
+    time_left: "",
     balance: 238.9,
     target: 400,
     color: 8,
@@ -175,7 +176,7 @@ const DATA_TAB = [
   {
     icon: "🎭",
     title: "Lazer",
-    time_left: "64 days left",
+    time_left: "",
     balance: 138.8,
     target: 500,
     color: 11,
@@ -184,17 +185,3 @@ const DATA_TAB = [
 ];
 
 export const TOTAL = DATA_TAB.reduce((total, item) => total + (item.target - item.balance), 0);
-
-const formatDefault = (amount: string, currency = "R$") => {
-  let textResult = `${currency} `;
-  try {
-    if (isNaN(parseFloat(amount))) {
-      textResult += numeral(parseFloat(amount.replace(",", ""))).format("0,0.00");
-    } else {
-      textResult += numeral(parseFloat(amount)).format("0,0.00");
-    }
-  } catch (e) {
-    console.log(e);
-  }
-  return textResult;
-};

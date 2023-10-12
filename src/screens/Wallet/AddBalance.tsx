@@ -9,6 +9,7 @@ import {
   useStyleSheet,
 } from '@ui-kitten/components';
 
+import { formatDefault } from 'utils/formatValue';
 import {
   Container,
   Content,
@@ -100,17 +101,3 @@ const themedStyles = StyleService.create({
     flexDirection: 'row',
   },
 });
-
-const formatDefault = (amount: string, currency = "R$") => {
-  let textResult = `${currency} `;
-  try {
-    if (isNaN(parseFloat(amount))) {
-      textResult += numeral(parseFloat(amount.replace(",", ""))).format("0,0.00");
-    } else {
-      textResult += numeral(parseFloat(amount)).format("0,0.00");
-    }
-  } catch (e) {
-    console.log(e);
-  }
-  return textResult;
-};

@@ -16,6 +16,7 @@ import Images from 'assets/images';
 import { WalletStackParamList } from 'navigation/navigation-types';
 import { useLayout } from 'hooks';
 import { reset } from "navigation/RootNavigation";
+import { formatDefault } from 'utils/formatValue';
 import {
   Container,
   Content,
@@ -239,17 +240,3 @@ const DATA_TRANSACTION = [
     amount: '-R$ 122.23',
   },
 ];
-
-const formatDefault = (amount: string, currency = "R$") => {
-  let textResult = `${currency} `;
-  try {
-    if (isNaN(parseFloat(amount))) {
-      textResult += numeral(parseFloat(amount.replace(",", ""))).format("0,0.00");
-    } else {
-      textResult += numeral(parseFloat(amount)).format("0,0.00");
-    }
-  } catch (e) {
-    console.log(e);
-  }
-  return textResult;
-};

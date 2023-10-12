@@ -14,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -28,7 +30,9 @@
       "bundleIdentifier": "com.alles.app",
       "buildNumber": "1.0.0",
       "infoPlist": {
-        "UIBackgroundModes": ["audio"]
+        "UIBackgroundModes": [
+          "audio"
+        ]
       }
     },
     "web": {
@@ -36,8 +40,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "7cbe3295-7a24-464e-b837-18a1ae5ccd0b"
+        "projectId": "a4a54d40-51ea-4f10-ba98-dfa97b9c9294"
       }
-    }
+    },
+    "owner": "pedrogoncalvesk"
   }
 }
